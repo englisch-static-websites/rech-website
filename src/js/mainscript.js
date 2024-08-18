@@ -8,7 +8,6 @@ const header_css_path = [
 ];
 
 $(document).ready(function () {
-    console.log(main_url)
 
     $('.site-redirect-elements').click(function() {
         const redirectKey = $(this).data('redirect-key');
@@ -38,10 +37,6 @@ $(document).ready(function () {
             break;
     }
 
-    //preload einbauen
-    //$('header').css('background-image', 'url(' + img_urls[header_index] + ')');
-
-    //preload einbauen
     $("<link/>", {
         rel: "stylesheet",
         type: "text/css",
