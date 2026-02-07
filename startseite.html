@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Obstbau Rech - Startseite</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="src/img/logo/RechBright.png"/>
+    <link rel="stylesheet" href="src/css/main.css?v=2" type="text/css">
+    <link rel="stylesheet" href="src/css/pages/startseite.css?v=2" type="text/css">
+    <script src="src/js/jquery.js"></script>
+    <script src="src/js/home.js"></script>
+    <script src="src/js/mainscript.js?v=2"></script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="/startseite">
+            <img class="icon" src="src/img/logo/RechBright.png" alt="Obstbau Rech Logo">
+        </a>
+    </header>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <input class="hamburger-menu-cb" type="checkbox" id="hamburger-toggle"/>
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <label class="nav-overlay" for="hamburger-toggle"></label>
+            <div class="menu-items">
+                <img class="menu-logo" src="src/img/logo/RechBright.png" alt="Obstbau Rech">
+                <ul>
+                    <li><a class="active" href="/startseite">Home</a></li>
+                    <li>
+                        <a class="navbar-menu-topic">Anbau</a>
+                        <ul class="anbau-elements">
+                            <li><a href="/saisonkalender">Saison Kalender</a></li>
+                            <li><a href="/aepfel">Äpfel</a></li>
+                            <li><a href="/birnen">Birnen</a></li>
+                            <li><a href="/erdbeeren">Erdbeeren</a></li>
+                            <li><a href="/steinobst">Steinobst</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="navbar-menu-topic">Vermarktung</a>
+                        <ul>
+                            <li><a href="/wochenmarkt">Wochenmarkt</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/neuigkeiten">Neuigkeiten</a></li>
+                    <li><a href="/kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-container">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="caption caption-left">Regionallieferant<br>Obstbau Johannes Christoph Rech</div>
+                <img src="src/img/slideshow/Pflaumen2.jpg" alt="Pflaumen aus eigenem Anbau">
+                <div class="text">Pflaumen aus eigenem Anbau</div>
+            </div>
+            <div class="mySlides fade">
+                <div class="caption caption-right">Wochenmarkt<br>in Ahrweiler</div>
+                <img src="src/img/slideshow/Ahrweiler.jpg" alt="Wochenmarkt in Ahrweiler">
+            </div>
+            <div class="mySlides fade">
+                <div class="caption caption-left">Wochenmarkt<br>in Riehl</div>
+                <img src="src/img/slideshow/Stand1.jpg" alt="Wochenmarkt in Riehl">
+            </div>
+            <div class="mySlides fade">
+                <img src="src/img/slideshow/BadGodesberg1.jpg" alt="Wochenmarkt Bad Godesberg">
+            </div>
+            <div class="mySlides fade">
+                <div class="caption caption-left">Pflaumenplantage</div>
+                <img src="src/img/slideshow/Pflaumen1.jpg" alt="Pflaumenplantage">
+            </div>
+            <div class="mySlides fade">
+                <img src="src/img/slideshow/Stand2.jpg" alt="Marktstand">
+            </div>
+            <div class="mySlides fade">
+                <img src="src/img/slideshow/BadGodesberg2.jpg" alt="Bad Godesberg Markt">
+            </div>
+            <div class="mySlides fade">
+                <div class="caption caption-right">Unser Elstar Apfel</div>
+                <img src="src/img/slideshow/Aepfel.jpg" alt="Elstar Äpfel">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <section class="content">
+            <div class="content-section">
+                <p>
+                    Seit fast 70 Jahren und schon in der dritten Generation kultivieren wir in unserem Betrieb Kern-, Stein-
+                    und Beerenobst.
+                    Auf 36 Hektar Anbaufläche produzieren wir Äpfel, Birnen, Zwetschgen &amp; Erdbeeren.
+                    Die gesamte Produktpalette wird umweltschonend integriert produziert und ist QS-Gap zertifiziert.
+                    Wir vermarkten alle unsere Erzeugnisse selbst. Den Einzelhandel beliefern wir auf direktem Weg.
+                    Unsere frische Ware bieten wir auch auf den Wochenmärkten in Köln-Niehl, Köln-Riehl und Bad Godesberg an.
+                </p>
+            </div>
+
+            <div class="card-container">
+                <a class="card-element" href="/birnen">
+                    <div class="card-element-text"><p>Birnen</p></div>
+                    <img src="src/img/obst/birne/WilliamsChrist.png" alt="Birnen">
+                </a>
+                <a class="card-element card-element--bg" href="/steinobst" style="background-image: url('src/img/obst/steinobst/Hintergrund.jpg');">
+                    <div class="card-element-text"><p>Steinobst</p></div>
+                </a>
+                <a class="card-element" href="/aepfel">
+                    <div class="card-element-text"><p>Äpfel</p></div>
+                    <img src="src/img/obst/apfel/Elstar.png" alt="Äpfel">
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact">
+                <div class="footer-contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Werthovener Straße 18, 53501 Niederich</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>02641/26767 · +49 163 4718999</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <a href="mailto:rech-obst@web.de">rech-obst@web.de</a>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-links">
+                <a href="/impressum">Impressum</a>
+            </div>
+        </div>
+    </footer>
+    <script>plusSlides(0);</script>
+</body>
+</html>

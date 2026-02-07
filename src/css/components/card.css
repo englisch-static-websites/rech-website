@@ -1,19 +1,29 @@
+/* =============================================
+   Card Grid – responsive mit CSS Grid auto-fit
+   ============================================= */
 .card-container {
-    width: 100%;
-    height: 320px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
 }
 
-.card-container .card-element{
+.card-container .card-element {
     cursor: pointer;
-    border: 1px solid #d9d9d9;
-    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
     background-color: #d9d9d9;
     font-size: small;
-    width: 300px;
-    height: 300px;
-    float: left;
-    margin: 10px;
+    aspect-ratio: 1;
     position: relative;
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card-element:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    background-color: white;
 }
 
 .card-element .card-element-text {
@@ -21,7 +31,8 @@
 }
 
 .card-element:hover > .card-element-text {
-    display: block;
+    display: flex;
+    align-items: center;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -29,21 +40,32 @@
     height: 20%;
     background-color: rgba(0, 0, 0, 0.7);
     font-size: x-large;
+    padding: 0 var(--spacing-md);
 }
 
-.card-element:hover >.card-element-text > p {
-    display: block;
-    position: absolute;
-    top: 1%;
-    bottom: 3%;
-    left: 3%;
+.card-element:hover > .card-element-text > p {
     color: white;
+    margin: 0;
 }
 
 .card-element img {
-    max-width: 300px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.card-element:hover{
-    background-color: white;
+/* Hintergrundbild-Variante (z.B. Steinobst) */
+.card-element--bg {
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 640px) {
+    .card-container {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

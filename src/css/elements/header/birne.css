@@ -1,0 +1,13 @@
+@media (min-width: 769px) {
+    .site-header {
+        background-image: url(../../../img/obst/birne/Hintergrund.jpg);
+    }
+}
+.navbar a:hover, .navbar .navbar-menu-topic:hover {
+    background-color: var(--color-accent-yellow);
+    color: black;
+}
+.navbar a.active, .navbar .navbar-menu-topic.active {
+    background-color: var(--color-accent-yellow);
+    color: black;
+}

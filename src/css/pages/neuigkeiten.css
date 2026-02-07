@@ -1,0 +1,44 @@
+.news-section h2 {
+    color: var(--color-primary, #2d6a2e);
+    margin-bottom: var(--spacing-lg, 32px);
+    text-align: center;
+}
+
+.news-item {
+    background-color: var(--color-bg-light, #f9f9f9);
+    border-radius: var(--border-radius, 8px);
+    padding: var(--spacing-lg, 32px);
+    margin-bottom: var(--spacing-lg, 32px);
+}
+
+.news-item h3 {
+    color: var(--color-text, #333);
+    margin-bottom: var(--spacing-sm, 8px);
+}
+
+.news-date {
+    color: var(--color-text-light, #666);
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: var(--spacing-md, 16px);
+}
+
+.flyer-container {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg, 32px);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md, 16px);
+}
+
+.flyer-side {
+    flex: 0 1 400px;
+    text-align: center;
+}
+
+.flyer-side img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius, 8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

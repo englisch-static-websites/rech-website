@@ -1,0 +1,11 @@
+@media (min-width: 769px) {
+    .site-header {
+        background-image: url(../../../img/obst/steinobst/Hintergrund.jpg);
+    }
+}
+.navbar a:hover, .navbar .navbar-menu-topic:hover {
+    background-color: var(--color-accent-blue);
+}
+.navbar a.active, .navbar .navbar-menu-topic.active {
+    background-color: var(--color-accent-blue);
+}

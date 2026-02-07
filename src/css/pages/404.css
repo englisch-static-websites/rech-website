@@ -2,10 +2,6 @@ img {
     height: auto;
     width: auto;
     float: right;
-    -webkit-transform: scale(0.5);
-    -moz-transform: scale(0.5);
-    -ms-transform: scale(0.5);
-    -o-transform: scale(0.5);
     transform: scale(0.5);
 }
 
@@ -13,7 +9,7 @@ html {
     height: 100%;
     width: 100%;
     color: white;
-    font-family: HelveticaNeueW01-55Roma, HelveticaNeueW02-55Roma, HelveticaNeueW10-55Roma, "Helvetica Neue", Helvetica, Arial, Meiryo, "Hiragino Kaku Gothic Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;
+    font-family: montserrat, sans-serif;
     font-size: x-large;
 }
 
@@ -23,7 +19,7 @@ html {
 }
 
 button {
-    background-color: #f2f2f2;
+    background-color: var(--color-bg-nav, #f2f2f2);
     border: none;
     color: black;
     padding: 15px 32px;
@@ -33,4 +29,10 @@ button {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    border-radius: var(--border-radius, 8px);
+    transition: background-color var(--transition, 0.3s ease);
+}
+
+button:hover {
+    background-color: #e0e0e0;
 }

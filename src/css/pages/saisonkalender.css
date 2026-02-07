@@ -1,0 +1,106 @@
+.calendar-wrapper {
+    overflow-x: auto;
+    margin: var(--spacing-lg, 32px) 0;
+    padding: var(--spacing-md, 16px);
+    -webkit-overflow-scrolling: touch;
+}
+
+.calendar-wrapper h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg, 32px);
+    color: var(--color-primary, #2d6a2e);
+    font-size: 28px;
+}
+
+.seasonal-calendar {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 3px;
+    min-width: 700px;
+}
+
+.seasonal-calendar thead th {
+    padding: 12px 6px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--color-text-light, #666);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--color-border, #ddd);
+}
+
+.seasonal-calendar thead th:first-child {
+    text-align: left;
+    min-width: 140px;
+}
+
+.seasonal-calendar .section-header td {
+    padding: 24px 8px 8px;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-primary, #2d6a2e);
+    border-bottom: 2px solid var(--color-primary, #2d6a2e);
+    letter-spacing: 0.5px;
+}
+
+.seasonal-calendar tbody td {
+    padding: 5px 1px;
+    text-align: center;
+    height: 34px;
+}
+
+.seasonal-calendar tbody td:first-child {
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+    padding-left: 8px;
+    padding-right: 12px;
+    white-space: nowrap;
+}
+
+.seasonal-calendar tbody tr:not(.section-header):hover td {
+    background-color: rgba(45, 106, 46, 0.06);
+}
+
+.seasonal-calendar tbody tr:not(.section-header):hover td.available,
+.seasonal-calendar tbody tr:not(.section-header):hover td.available-start,
+.seasonal-calendar tbody tr:not(.section-header):hover td.available-end,
+.seasonal-calendar tbody tr:not(.section-header):hover td.available-single {
+    background-color: var(--color-primary-light, #4a9e4c);
+}
+
+.seasonal-calendar .available,
+.seasonal-calendar .available-start,
+.seasonal-calendar .available-end,
+.seasonal-calendar .available-single {
+    background-color: var(--color-primary, #2d6a2e);
+    transition: background-color var(--transition, 0.3s ease);
+}
+
+.seasonal-calendar .available-start {
+    border-radius: 16px 0 0 16px;
+}
+
+.seasonal-calendar .available-end {
+    border-radius: 0 16px 16px 0;
+}
+
+.seasonal-calendar .available-single {
+    border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+    .calendar-wrapper h2 {
+        font-size: 22px;
+    }
+
+    .seasonal-calendar thead th,
+    .seasonal-calendar tbody td:first-child {
+        font-size: 12px;
+    }
+
+    .seasonal-calendar thead th:first-child {
+        min-width: 100px;
+    }
+}

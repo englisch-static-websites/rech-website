@@ -1,224 +1,333 @@
-@media (hover: hover) and (pointer: fine) {
-    .navbar {
-        background-color: #f2f2f2;
-        z-index: 1;
-        display: block;
-    }
+/* =============================================
+   Navigation – Desktop-First mit max-width Breakpoint
+   ============================================= */
 
-    .navbar ul {
-        list-style: none;
-        background-color: #f2f2f2;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-        z-index: 1;
-    }
-
-    .navbar li {
-        font-family: montserrat, sans-serif;
-        font-size: 10pt;
-        line-height: 40px;
-        text-align: left;
-        z-index: 1;
-    }
-
-    .navbar a {
-        text-decoration: none;
-        color: black;
-        display: block;
-        padding-left: 15px;
-        transition: .3s;
-        background-color: #f2f2f2;
-        z-index: 1;
-    }
-
-    .navbar a:hover {
-        background-color: #f2f2f2;
-        color: white;
-        z-index: 1;
-    }
-
-    .navbar a.active {
-        background-color: #f2f2f2;
-        color: #fff;
-        cursor: default;
-        z-index: 1;
-    }
-
-    .navbar li li {
-        font-size: 10pt;
-        z-index: 1;
-    }
-
-    .navbar li {
-        width: 130px;
-        border-bottom: none;
-        height: 50px;
-        line-height: 50px;
-        font-size: 10pt;
-        display: inline-block;
-        margin-right: -4px;
-        z-index: 1;
-    }
-
-    .navbar > ul > li {
-        text-align: center;
-        z-index: 1;
-    }
-
-    .navbar > ul > li > a {
-        padding-left: 0;
-        z-index: 1;
-    }
-
-    .navbar li ul {
-        position: absolute;
-        display: none;
-        width: inherit;
-        z-index: 1;
-    }
-
-    .navbar li:hover ul {
-        display: block;
-        z-index: 1;
-    }
-
-    .hamburger-menu-cb {
-        display: none;
-    }
-
-    .navbar li ul li {
-        display: block;
-        z-index: 1;
-    }
+/* Desktop navigation (Standard) */
+.navbar {
+    background-color: var(--color-bg-nav);
+    z-index: 10;
 }
 
-@media (pointer: coarse) {
-    header{
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar > .nav-container > .menu-items > ul {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.navbar li {
+    font-family: var(--font-main);
+    font-size: 0.75rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navbar > .nav-container > .menu-items > ul > li > a,
+.navbar > .nav-container > .menu-items > ul > li > .navbar-menu-topic {
+    padding: 14px 24px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.navbar a,
+.navbar .navbar-menu-topic {
+    text-decoration: none;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 15px;
+    transition: color var(--transition), background-color var(--transition);
+    background-color: var(--color-bg-nav);
+    cursor: pointer;
+}
+
+.navbar a:hover,
+.navbar .navbar-menu-topic:hover {
+    color: white;
+}
+
+.navbar a.active {
+    color: #fff;
+    cursor: default;
+}
+
+.navbar .navbar-menu-topic.active {
+    color: #fff;
+}
+
+/* Dropdown */
+.navbar li ul {
+    position: absolute;
+    display: none;
+    min-width: 160px;
+    z-index: 20;
+    left: 0;
+    top: 100%;
+    background-color: var(--color-bg-nav);
+}
+
+.navbar li:hover > ul {
+    display: block;
+}
+
+.navbar li ul li {
+    display: block;
+    text-align: left;
+}
+
+.navbar li ul li a {
+    padding: 10px 15px;
+    justify-content: flex-start;
+}
+
+/* Elemente die nur auf Mobile sichtbar sind */
+.hamburger-menu-cb,
+.hamburger-lines,
+.nav-overlay,
+.menu-logo {
+    display: none;
+}
+
+/* =============================================
+   Mobile Slide-In Sidebar (max-width: 768px)
+   ============================================= */
+@media (max-width: 768px) {
+
+    /* --- Header fixiert --- */
+    .site-header {
         position: fixed;
         width: 100%;
-        z-index: 2;
+        z-index: 20;
         background: white;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
     }
 
     .navbar {
         width: 100%;
-        box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
-    }
-
-    .navbar .nav-container li {
-        list-style: none;
-    }
-
-    .navbar .nav-container a {
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 5rem;
-        padding: 0.7rem;
-    }
-
-    .navbar .nav-container a:hover{
-        font-weight: bolder;
+        height: 0;
+        overflow: hidden;
     }
 
     .nav-container {
         display: block;
         position: relative;
-        height: 60px;
+        height: 0;
     }
 
+    /* --- Hamburger Button --- */
     .nav-container .hamburger-menu-cb {
         position: fixed;
         display: block;
-        height: 60px;
-        width: 60px;
-        top: 20px;
-        left: 20px;
-        z-index: 5;
+        height: 44px;
+        width: 44px;
+        top: 12px;
+        left: 12px;
+        z-index: 60;
         opacity: 0;
         cursor: pointer;
+        margin: 0;
     }
 
     .nav-container .hamburger-lines {
-        height: 80px;
-        width: 100px;
+        height: 18px;
+        width: 24px;
         position: fixed;
-        top: 17px;
-        left: 20px;
-        z-index: 3;
+        top: 25px;
+        left: 22px;
+        z-index: 55;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-    }
-
-    .navbar .menu-items {
-        position: fixed;
-        padding-top: 120px;
-        background-color: white;
-        height: 100%;
-        width: 100%;
-        transform: translate(-150%);
-        display: flex;
-        flex-direction: column;
-        padding-left: 50px;
-        transition: transform 0.5s ease-in-out;
-        text-align: center;
-        z-index: 2;
+        pointer-events: none;
     }
 
     .nav-container .hamburger-lines .line {
         display: block;
-        height: 15px;
+        height: 2px;
         width: 100%;
-        border-radius: 10px;
-        background: #0e2431;
+        border-radius: 2px;
+        background: var(--color-text);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.25s ease;
     }
 
     .nav-container .hamburger-lines .line1 {
-        transform-origin: 0% 0%;
-        transition: transform 0.4s ease-in-out;
-    }
-
-    .nav-container .hamburger-lines .line2 {
-        transition: transform 0.2s ease-in-out;
+        transform-origin: left center;
     }
 
     .nav-container .hamburger-lines .line3 {
-        transform-origin: 0% 100%;
-        transition: transform 0.4s ease-in-out;
+        transform-origin: left center;
     }
 
-    .navbar .menu-items li {
-        margin-bottom: 1.2rem;
-        font-size: 1.5rem;
-        font-weight: 500;
+    /* Hamburger → X Animation */
+    .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+        transform: rotate(45deg) translate(1px, -1px);
+    }
+
+    .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+        transform: rotate(-45deg) translate(1px, 1px);
+    }
+
+    /* --- Overlay (halbtransparent) --- */
+    .nav-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 39;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.35s ease, visibility 0.35s ease;
+        cursor: pointer;
+    }
+
+    .nav-container input[type="checkbox"]:checked ~ .nav-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* --- Sidebar Panel --- */
+    .navbar .menu-items {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px;
+        max-width: 80vw;
+        height: 100%;
+        background-color: white;
+        transform: translateX(-100%);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 40;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        overflow-y: auto;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.12);
     }
 
     .nav-container input[type="checkbox"]:checked ~ .menu-items {
         transform: translateX(0);
     }
 
-    .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
-        transform: rotate(45deg);
-    }
-
-    .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
-        transform: scaleY(0);
-    }
-
-    .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
-        transform: rotate(-45deg);
-    }
-
-    .nav-container input[type="checkbox"]:checked ~ .logo{
-        display: none;
-    }
-
-    .nav-container input[type="checkbox"]:checked ~ .overlay{
+    /* --- Logo im Sidebar --- */
+    .menu-logo {
         display: block;
+        width: 60px;
+        height: auto;
+        margin: 28px 24px 20px;
     }
 
-    .navbar-menu-topic{
-        display: none;
+    /* --- Menü-Liste --- */
+    .navbar > .nav-container > .menu-items > ul {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 24px 32px;
+        text-align: left;
+    }
+
+    .navbar li {
+        display: block;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    /* Theme-Farben auf Mobile komplett überschreiben */
+    .navbar a,
+    .navbar a:hover,
+    .navbar a:active,
+    .navbar a.active,
+    .navbar .navbar-menu-topic,
+    .navbar .navbar-menu-topic:hover,
+    .navbar .navbar-menu-topic.active {
+        background-color: transparent !important;
+    }
+
+    .navbar .nav-container a {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        display: block;
+        padding: 12px 0;
+        color: var(--color-text);
+        background: transparent !important;
+        border-radius: 0;
+        transition: color var(--transition);
+        text-align: left;
+    }
+
+    .navbar .nav-container a:hover {
+        color: var(--color-primary);
+    }
+
+    .navbar .nav-container a.active {
+        color: var(--color-primary);
+        font-weight: 600;
+        background: transparent !important;
+    }
+
+    .navbar .menu-items li {
+        margin-bottom: 0;
+    }
+
+    /* Top-Level Items: Trennlinie */
+    .navbar > .nav-container > .menu-items > ul > li {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .navbar > .nav-container > .menu-items > ul > li:last-child {
+        border-bottom: none;
+    }
+
+    /* --- Abschnitts-Header (Anbau, Vermarktung) --- */
+    .navbar-menu-topic {
+        display: block !important;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--color-text-light) !important;
+        padding: 16px 0 4px !important;
+        cursor: default;
+        background: transparent !important;
+        text-align: left;
+    }
+
+    /* --- Dropdown / Sub-Items --- */
+    .navbar li ul {
+        position: static;
+        display: block;
+        min-width: 0;
+        padding-left: 0;
+        background-color: transparent;
+    }
+
+    .navbar li ul li {
+        border-bottom: none;
+    }
+
+    .navbar li ul li a {
+        background-color: transparent;
+        padding: 10px 0 10px 12px;
+        font-size: 0.95rem;
+        font-weight: 400;
+        justify-content: flex-start;
+        border-left: 2px solid var(--color-border);
+    }
+
+    .navbar li ul li a:hover {
+        border-left-color: var(--color-primary);
+        color: var(--color-primary);
     }
 }

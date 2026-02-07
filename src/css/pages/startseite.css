@@ -1,0 +1,11 @@
+@import "../components/slideshow.css";
+@import "../components/card.css";
+
+.content-section {
+    background-color: var(--color-bg-light, #f9f9f9);
+    border-radius: var(--border-radius, 8px);
+    padding: var(--spacing-lg, 32px);
+    margin: var(--spacing-lg, 32px) 0;
+    text-align: center;
+    line-height: 1.8;
+}

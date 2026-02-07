@@ -1,39 +1,100 @@
 @import "components/navbar.css";
-@import "elements/footer/imprint.css";
+@import "elements/footer/fusszeile.css";
 @import "fonts/montserrat.css";
+
+:root {
+    --color-primary: #2d6a2e;
+    --color-primary-light: #4a9e4c;
+    --color-accent-red: #e63946;
+    --color-accent-yellow: #CAD540;
+    --color-accent-blue: #8999CD;
+    --color-bg: #ffffff;
+    --color-bg-light: #f9f9f9;
+    --color-bg-nav: #f2f2f2;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-border: #dddddd;
+    --font-main: montserrat, sans-serif;
+    --max-width: 1200px;
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+    --border-radius: 8px;
+    --transition: 0.3s ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
 
 body {
     margin: 0;
-    font-size: 20px;
-    font-family: montserrat, sans-serif;
+    font-size: 18px;
+    font-family: var(--font-main);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+}
+
+.site-header {
+    text-align: center;
+    padding: var(--spacing-sm);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.site-header a {
+    display: inline-block;
 }
 
 .icon {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     height: auto;
     width: auto;
     max-width: 150px;
     max-height: 150px;
 }
 
-.header {
-    padding: 2px;
-    text-align: center;
+.content-container {
+    max-width: var(--max-width);
+    width: 95%;
+    margin: 0 auto;
+    padding: var(--spacing-md);
 }
 
 .content {
-    z-index: -1;
     display: block;
-    width: 1000px;
+    max-width: var(--max-width);
+    width: 100%;
     margin: auto;
-    padding: 16px;
-    font-family: montserrat, sans-serif;
+    padding: var(--spacing-md);
+    font-family: var(--font-main);
 }
 
-@media (pointer: coarse) {
-    .content-container{
-        margin-top: 50px;
+@media (max-width: 768px) {
+    /* Header kompakt: Logo klein, feste Höhe */
+    .site-header {
+        padding: 8px var(--spacing-sm);
+    }
+
+    .icon {
+        max-width: 100px;
+        max-height: 44px;
+    }
+
+    /* Content unter dem fixierten Header positionieren.
+       Header-Höhe: 44px Logo + 16px Padding = ~60px */
+    .content-container {
+        margin-top: 68px;
     }
 }

@@ -1,35 +1,27 @@
 const main_url = window.location.pathname.replace('/', '');
 
 const header_css_path = [
-    'src/css/elements/header/apple.css',
-    'src/css/elements/header/pear.css',
-    'src/css/elements/header/plum.css',
-    'src/css/elements/header/strawberry.css',
+    'src/css/elements/header/apfel.css',
+    'src/css/elements/header/birne.css',
+    'src/css/elements/header/pflaume.css',
+    'src/css/elements/header/erdbeere.css',
 ];
 
 $(document).ready(function () {
-
-    $('.site-redirect-elements').click(function() {
-        const redirectKey = $(this).data('redirect-key');
-        if(redirectKey !== 'active'){
-            window.location.replace(redirectKey);
-        }
-    });
-
     let header_index = 0;
 
     switch (main_url) {
-        case 'apple' :
+        case 'aepfel':
             header_index = 0;
             break;
-        case 'pear' :
+        case 'birnen':
             header_index = 1;
             break;
-        case 'home' :
-        case 'stonefruit' :
+        case 'startseite':
+        case 'steinobst':
             header_index = 2;
             break;
-        case 'strawberry' :
+        case 'erdbeeren':
             header_index = 3;
             break;
         default:
