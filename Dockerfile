@@ -1,10 +1,34 @@
+# =============================================================================
+# Stage 1: Bilder optimieren
+# =============================================================================
+FROM alpine:3.19 AS img-optimize
+
+RUN apk add --no-cache imagemagick jpegoptim optipng
+
+COPY src/img/ /img/
+
+# JPG/JPEG: auf max 1920px Breite skalieren, Qualitaet 80
+RUN find /img -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) \
+    -exec sh -c 'mogrify -resize "1920x1920>" -quality 80 "$1" && jpegoptim --strip-all --max=80 -q "$1"' _ {} \;
+
+# PNG: verlustfrei optimieren
+RUN find /img -type f -iname "*.png" \
+    -exec optipng -o2 -quiet {} \;
+
+# =============================================================================
+# Stage 2: Nginx mit optimierten Dateien
+# =============================================================================
 FROM nginx:alpine
 
 # Nginx Konfiguration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Statische Dateien kopieren (ohne unnoetige Dateien)
+# Statische Dateien kopieren
 COPY *.html /usr/share/nginx/html/
 COPY src/ /usr/share/nginx/html/src/
+COPY sitemap.xml robots.txt /usr/share/nginx/html/
+
+# Optimierte Bilder ueber die Originale kopieren
+COPY --from=img-optimize /img/ /usr/share/nginx/html/src/img/
 
 EXPOSE 80

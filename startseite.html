@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Obstbau Rech - Startseite</title>
+    <title>Obstbau Rech – Frisches Obst aus Niederich | Köln & Bad Godesberg</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Obstbau Rech in Niederich – seit 3 Generationen Äpfel, Birnen, Zwetschgen & Erdbeeren auf 36 Hektar. Frisch auf den Wochenmärkten in Köln und Bad Godesberg.">
+    <meta property="og:title" content="Obstbau Rech – Frisches Obst aus Niederich">
+    <meta property="og:description" content="Seit fast 70 Jahren kultivieren wir Kern-, Stein- und Beerenobst. Frisch auf den Wochenmärkten in Köln und Bad Godesberg.">
+    <meta property="og:image" content="https://obstbau-rech.de/src/img/logo/RechBright.png">
+    <meta property="og:url" content="https://obstbau-rech.de/startseite">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://obstbau-rech.de/startseite">
     <link rel="shortcut icon" href="src/img/logo/RechBright.png"/>
     <link rel="stylesheet" href="src/css/main.css?v=2" type="text/css">
     <link rel="stylesheet" href="src/css/pages/startseite.css?v=2" type="text/css">
-    <script src="src/js/jquery.js"></script>
     <script src="src/js/home.js"></script>
-    <script src="src/js/mainscript.js?v=2"></script>
+    <script src="src/js/mainscript.js?v=3"></script>
 </head>
 <body>
     <header class="site-header">
@@ -92,6 +98,7 @@
 
         <section class="content">
             <div class="content-section">
+                <h1>Frisches Obst aus Niederich</h1>
                 <p>
                     Seit fast 70 Jahren und schon in der dritten Generation kultivieren wir in unserem Betrieb Kern-, Stein-
                     und Beerenobst.
@@ -105,14 +112,14 @@
             <div class="card-container">
                 <a class="card-element" href="/birnen">
                     <div class="card-element-text"><p>Birnen</p></div>
-                    <img src="src/img/obst/birne/WilliamsChrist.png" alt="Birnen">
+                    <img src="src/img/obst/birne/WilliamsChrist.png" loading="lazy" alt="Birnen">
                 </a>
                 <a class="card-element card-element--bg" href="/steinobst" style="background-image: url('src/img/obst/steinobst/Hintergrund.jpg');">
                     <div class="card-element-text"><p>Steinobst</p></div>
                 </a>
                 <a class="card-element" href="/aepfel">
                     <div class="card-element-text"><p>Äpfel</p></div>
-                    <img src="src/img/obst/apfel/Elstar.png" alt="Äpfel">
+                    <img src="src/img/obst/apfel/Elstar.png" loading="lazy" alt="Äpfel">
                 </a>
             </div>
         </section>
@@ -141,5 +148,32 @@
         </div>
     </footer>
     <script>plusSlides(0);</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Obstbau Rech",
+        "description": "Obstbaubetrieb in Niederich – seit 3 Generationen Äpfel, Birnen, Zwetschgen und Erdbeeren aus eigenem Anbau.",
+        "url": "https://obstbau-rech.de",
+        "logo": "https://obstbau-rech.de/src/img/logo/RechBright.png",
+        "image": "https://obstbau-rech.de/src/img/logo/RechBright.png",
+        "telephone": ["+49 2641 26767", "+49 163 4718999"],
+        "email": "rech-obst@web.de",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Werthovener Straße 18",
+            "addressLocality": "Grafschaft",
+            "addressRegion": "Rheinland-Pfalz",
+            "postalCode": "53501",
+            "addressCountry": "DE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 50.5907,
+            "longitude": 7.1204
+        },
+        "sameAs": []
+    }
+    </script>
 </body>
 </html>

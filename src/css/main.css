@@ -81,6 +81,26 @@ a {
     font-family: var(--font-main);
 }
 
+.internal-links {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-bg-light);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-primary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.internal-links a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.internal-links a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 768px) {
     /* Header kompakt: Logo klein, feste Höhe */
     .site-header {

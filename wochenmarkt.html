@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Obstbau Rech - Wochenmarkt</title>
+    <title>Wochenmarkt Köln & Bad Godesberg – Frisches Obst | Obstbau Rech</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Obstbau Rech auf dem Wochenmarkt – frisches Obst in Bad Godesberg, Köln-Riehl und Köln-Niehl. Marktzeiten und Standorte.">
+    <meta property="og:title" content="Wochenmärkte – Obstbau Rech">
+    <meta property="og:description" content="Frisches Obst auf den Wochenmärkten in Bad Godesberg, Köln-Riehl und Köln-Niehl.">
+    <meta property="og:image" content="https://obstbau-rech.de/src/img/logo/RechBright.png">
+    <meta property="og:url" content="https://obstbau-rech.de/wochenmarkt">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://obstbau-rech.de/wochenmarkt">
     <link rel="shortcut icon" href="src/img/logo/RechBright.png"/>
     <link rel="stylesheet" href="src/css/main.css?v=2" type="text/css">
-    <link rel="stylesheet" href="src/css/pages/wochenmarkt.css?v=2" type="text/css">
-    <script src="src/js/jquery.js"></script>
-    <script src="src/js/mainscript.js?v=2"></script>
+    <link rel="stylesheet" href="src/css/pages/wochenmarkt.css?v=3" type="text/css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <script src="src/js/mainscript.js?v=3"></script>
 </head>
 <body>
     <header class="site-header">
@@ -56,12 +63,12 @@
     <main class="content-container">
         <section class="content">
             <div class="wochenmarkt-intro">
-                <h2>Wochenmärkte</h2>
+                <h1>Wochenmärkte in Köln & Bad Godesberg</h1>
                 <p>
-                    Schon in der 3. Generation und das bereits seit fast 70 Jahren beliefern wir Wochenmärkte in Bad Godesberg
-                    und Köln mit frischem Obst und Gemüse.
-                    Unser Obst wie Äpfel, Birnen, Zwetschgen, Renekloden, Mirabellen und Kirschen stammen aus eigenem Anbau.
-                    Ergänzt wird unser Angebot noch durch Zukäufe von Obst und Gemüse bei Bauern aus der Region und im Bonner Frühmarkt.
+                    Schon in der 3. Generation und das bereits seit fast 70 Jahren beliefern wir Wochenmärkte in Bonn–Bad Godesberg und Köln mit frischem Obst und Gemüse. Unser Obst wie Äpfel, Birnen, Zwetschgen, Renekloden, Mirabellen und Kirschen stammen aus eigenem Anbau in Niederich, Grafschaft. Ergänzt wird unser Angebot durch Zukäufe bei Bauern aus der Region und im Bonner Frühmarkt.
+                </p>
+                <p>
+                    Sie finden unseren Obststand jeden Samstag auf dem Wochenmarkt in Bad Godesberg am Moltkeplatz, mittwochs und samstags auf dem Wochenmarkt in Köln-Riehl sowie donnerstags in Köln-Niehl. Wir bieten frisches, regionales Obst direkt vom Erzeuger – umweltschonend und QS-Gap zertifiziert.
                 </p>
             </div>
 
@@ -70,10 +77,9 @@
                     <span class="market-label">Samstags</span>
                     <h3>Bonn – Bad Godesberg</h3>
                     <p class="market-times">Samstag: 8 – 14 Uhr</p>
+                    <p class="market-products">Äpfel, Birnen, Erdbeeren, Steinobst &amp; Gemüse – je nach Saison.</p>
                     <div class="map-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2527.8522890670447!2d7.156148269637216!3d50.68556676233368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bee472785a02bd%3A0xee1fbf338a0d9874!2sMoltkeplatz%2C%2053173%20Bonn!5e0!3m2!1sde!2sde!4v1615200080210!5m2!1sde!2sde"
-                                allowfullscreen="" loading="lazy"
-                                title="Karte Wochenmarkt Bad Godesberg"></iframe>
+                        <div id="map-godesberg" class="leaflet-map"></div>
                     </div>
                 </div>
 
@@ -84,10 +90,9 @@
                         Mittwoch: 7 – 13 Uhr<br>
                         Samstag: 7 – 13 Uhr
                     </p>
+                    <p class="market-products">Frisches Obst und Gemüse aus der Region Grafschaft.</p>
                     <div class="map-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d888.4013299614138!2d6.974631041894547!3d50.96480088595764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf258c92c26e63%3A0x6e42c3bed6bdc33!2sWochenmarkt%20K%C3%B6ln%20Riehl!5e0!3m2!1sde!2sde!4v1615200424187!5m2!1sde!2sde"
-                                allowfullscreen="" loading="lazy"
-                                title="Karte Wochenmarkt Köln Riehl"></iframe>
+                        <div id="map-riehl" class="leaflet-map"></div>
                     </div>
                 </div>
 
@@ -95,10 +100,9 @@
                     <span class="market-label">Donnerstags</span>
                     <h3>Köln – Niehl</h3>
                     <p class="market-times">Donnerstag: 7 – 13 Uhr</p>
+                    <p class="market-products">Regionales Obst vom Obstbauern – direkt vom Feld auf den Markt.</p>
                     <div class="map-wrapper">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d528.0774821473306!2d6.963591699490995!3d50.979671263078444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf2f7baa0a0e15%3A0xa2f637a5c273aa01!2sWaldfriedstra%C3%9Fe%2C%2050735%20K%C3%B6ln!5e0!3m2!1sde!2sde!4v1615200478633!5m2!1sde!2sde"
-                                allowfullscreen="" loading="lazy"
-                                title="Karte Wochenmarkt Köln Niehl"></iframe>
+                        <div id="map-niehl" class="leaflet-map"></div>
                     </div>
                 </div>
             </div>
@@ -127,5 +131,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="src/js/leaflet-maps.js?v=1"></script>
 </body>
 </html>

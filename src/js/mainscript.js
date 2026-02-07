@@ -7,7 +7,7 @@ const header_css_path = [
     'src/css/elements/header/erdbeere.css',
 ];
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
     let header_index = 0;
 
     switch (main_url) {
@@ -29,9 +29,9 @@ $(document).ready(function () {
             break;
     }
 
-    $("<link/>", {
-        rel: "stylesheet",
-        type: "text/css",
-        href: header_css_path[header_index]
-    }).appendTo("head");
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = header_css_path[header_index];
+    document.head.appendChild(link);
 });
