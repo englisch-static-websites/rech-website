@@ -73,7 +73,8 @@
     background-color: var(--color-bg-nav);
 }
 
-.navbar li:hover > ul {
+.navbar li:hover > ul,
+.navbar li.dropdown-open > ul {
     display: block;
 }
 

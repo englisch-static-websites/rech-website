@@ -34,4 +34,39 @@ document.addEventListener('DOMContentLoaded', function () {
     link.type = 'text/css';
     link.href = header_css_path[header_index];
     document.head.appendChild(link);
+
+    /* =============================================
+       Touch-Support für Dropdown-Menüs (iPad/iPhone Querformat)
+       Auf Touch-Geräten im Desktop-Layout (>768px) funktioniert
+       :hover nicht zuverlässig. Deshalb togglen wir per Klick/Touch
+       eine CSS-Klasse "dropdown-open" auf dem Parent-<li>.
+       ============================================= */
+    const dropdownToggles = document.querySelectorAll('.navbar-menu-topic');
+
+    dropdownToggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const parentLi = this.closest('li');
+            const isOpen = parentLi.classList.contains('dropdown-open');
+
+            // Alle anderen Dropdowns schließen
+            document.querySelectorAll('.navbar li.dropdown-open').forEach(function (openLi) {
+                openLi.classList.remove('dropdown-open');
+            });
+
+            // Dieses Dropdown togglen
+            if (!isOpen) {
+                parentLi.classList.add('dropdown-open');
+            }
+        });
+    });
+
+    // Dropdown schließen wenn außerhalb geklickt wird
+    document.addEventListener('click', function () {
+        document.querySelectorAll('.navbar li.dropdown-open').forEach(function (openLi) {
+            openLi.classList.remove('dropdown-open');
+        });
+    });
 });

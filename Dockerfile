@@ -20,6 +20,11 @@ RUN find /img -type f -iname "*.png" \
 # =============================================================================
 FROM nginx:alpine
 
+# Build-Metadaten
+ARG GIT_COMMIT=unknown
+ARG GIT_BRANCH=unknown
+ARG BUILD_TIME=unknown
+
 # Nginx Konfiguration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
@@ -30,5 +35,9 @@ COPY sitemap.xml robots.txt /usr/share/nginx/html/
 
 # Optimierte Bilder ueber die Originale kopieren
 COPY --from=img-optimize /img/ /usr/share/nginx/html/src/img/
+
+# Build-Info generieren
+RUN printf '{"app":"rech-website","commit":"%s","branch":"%s","buildTime":"%s"}' \
+    "${GIT_COMMIT}" "${GIT_BRANCH}" "${BUILD_TIME}" > /usr/share/nginx/html/info.json
 
 EXPOSE 80
