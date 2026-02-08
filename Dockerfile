@@ -3,7 +3,7 @@
 # =============================================================================
 FROM alpine:3.19 AS img-optimize
 
-RUN apk add --no-cache imagemagick jpegoptim optipng
+RUN apk add --no-cache imagemagick jpegoptim optipng libwebp-tools
 
 COPY src/img/ /img/
 
@@ -14,6 +14,12 @@ RUN find /img -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) \
 # PNG: verlustfrei optimieren
 RUN find /img -type f -iname "*.png" \
     -exec optipng -o2 -quiet {} \;
+
+# WebP-Varianten erzeugen (Logos ausschliessen)
+RUN find /img -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) \
+    -exec sh -c 'cwebp -q 80 "$1" -o "${1%.*}.webp"' _ {} \; && \
+    find /img -type f -iname "*.png" ! -path "*/logo/*" \
+    -exec sh -c 'cwebp -q 80 "$1" -o "${1%.*}.webp"' _ {} \;
 
 # =============================================================================
 # Stage 2: Nginx mit optimierten Dateien
