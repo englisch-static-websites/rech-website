@@ -20,7 +20,8 @@
     transition: transform var(--transition), box-shadow var(--transition);
 }
 
-.card-element:hover {
+.card-element:hover,
+.card-element:focus-visible {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     background-color: white;
@@ -30,7 +31,8 @@
     display: none;
 }
 
-.card-element:hover > .card-element-text {
+.card-element:hover > .card-element-text,
+.card-element:focus-visible > .card-element-text {
     display: flex;
     align-items: center;
     position: absolute;
@@ -43,7 +45,8 @@
     padding: 0 var(--spacing-md);
 }
 
-.card-element:hover > .card-element-text > p {
+.card-element:hover > .card-element-text > p,
+.card-element:focus-visible > .card-element-text > p {
     color: white;
     margin: 0;
 }

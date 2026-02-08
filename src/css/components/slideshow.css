@@ -41,8 +41,14 @@
     border-radius: 3px 0 0 3px;
 }
 
-.prev:hover, .next:hover {
+.prev:hover, .next:hover,
+.prev:focus-visible, .next:focus-visible {
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev:focus-visible, .next:focus-visible {
+    outline: 2px solid white;
+    outline-offset: -2px;
 }
 
 .mySlides .caption {
@@ -73,6 +79,7 @@
     bottom: 8px;
     width: 100%;
     text-align: center;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .fade {

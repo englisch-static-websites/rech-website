@@ -44,21 +44,42 @@ document.addEventListener('DOMContentLoaded', function () {
     const dropdownToggles = document.querySelectorAll('.navbar-menu-topic');
 
     dropdownToggles.forEach(function (toggle) {
+        toggle.setAttribute('tabindex', '0');
+        toggle.setAttribute('role', 'button');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-haspopup', 'true');
+
+        function toggleDropdown(el) {
+            var parentLi = el.closest('li');
+            var isOpen = parentLi.classList.contains('dropdown-open');
+
+            document.querySelectorAll('.navbar li.dropdown-open').forEach(function (openLi) {
+                openLi.classList.remove('dropdown-open');
+                var t = openLi.querySelector('.navbar-menu-topic');
+                if (t) t.setAttribute('aria-expanded', 'false');
+            });
+
+            if (!isOpen) {
+                parentLi.classList.add('dropdown-open');
+                el.setAttribute('aria-expanded', 'true');
+            }
+        }
+
         toggle.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
+            toggleDropdown(this);
+        });
 
-            const parentLi = this.closest('li');
-            const isOpen = parentLi.classList.contains('dropdown-open');
-
-            // Alle anderen Dropdowns schließen
-            document.querySelectorAll('.navbar li.dropdown-open').forEach(function (openLi) {
-                openLi.classList.remove('dropdown-open');
-            });
-
-            // Dieses Dropdown togglen
-            if (!isOpen) {
-                parentLi.classList.add('dropdown-open');
+        toggle.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleDropdown(this);
+            } else if (e.key === 'Escape') {
+                var parentLi = this.closest('li');
+                parentLi.classList.remove('dropdown-open');
+                this.setAttribute('aria-expanded', 'false');
             }
         });
     });
