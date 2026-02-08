@@ -50,12 +50,12 @@ document.addEventListener('DOMContentLoaded', function () {
         toggle.setAttribute('aria-haspopup', 'true');
 
         function toggleDropdown(el) {
-            var parentLi = el.closest('li');
-            var isOpen = parentLi.classList.contains('dropdown-open');
+            const parentLi = el.closest('li');
+            const isOpen = parentLi.classList.contains('dropdown-open');
 
             document.querySelectorAll('.navbar li.dropdown-open').forEach(function (openLi) {
                 openLi.classList.remove('dropdown-open');
-                var t = openLi.querySelector('.navbar-menu-topic');
+                const t = openLi.querySelector('.navbar-menu-topic');
                 if (t) t.setAttribute('aria-expanded', 'false');
             });
 
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.stopPropagation();
                 toggleDropdown(this);
             } else if (e.key === 'Escape') {
-                var parentLi = this.closest('li');
+                const parentLi = this.closest('li');
                 parentLi.classList.remove('dropdown-open');
                 this.setAttribute('aria-expanded', 'false');
             }
