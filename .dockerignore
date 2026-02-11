@@ -2,7 +2,12 @@
 .github
 .gitignore
 .dockerignore
+.env*
 docker-compose.yml
 Dockerfile
 README.md
 *.md
+node_modules
+npm-debug.log*
+.vscode
+.idea
