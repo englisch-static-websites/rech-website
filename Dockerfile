@@ -26,7 +26,12 @@ RUN find /img -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) \
 # =============================================================================
 FROM node:22-alpine AS minify
 
-RUN npm install -g clean-css-cli terser --no-fund --no-audit
+# renovate: datasource=npm depName=clean-css-cli
+ARG CLEAN_CSS_VERSION=5.6.3
+# renovate: datasource=npm depName=terser
+ARG TERSER_VERSION=5.46.0
+
+RUN npm install -g clean-css-cli@${CLEAN_CSS_VERSION} terser@${TERSER_VERSION} --no-fund --no-audit
 
 COPY src/css/ /assets/css/
 COPY src/js/ /assets/js/

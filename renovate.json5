@@ -1,0 +1,86 @@
+// =============================================================================
+// Renovate Configuration - rech-website
+// =============================================================================
+// Verwaltet: Docker Base Images, GitHub Actions, npm-Pakete (Dockerfile)
+// Doku: https://docs.renovatebot.com/configuration-options/
+// =============================================================================
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "docker:pinDigests",
+    "helpers:pinGitHubActionDigestsToSemver",
+    ":semanticCommits",
+    ":automergePatch"
+  ],
+  "labels": ["dependencies"],
+  "schedule": ["before 8am on monday"],
+  "timezone": "Europe/Berlin",
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 3,
+
+  "packageRules": [
+    // --- GitHub Actions ---
+    {
+      "description": "GitHub Actions: Automerge minor/patch, gruppiert",
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions",
+      "automerge": true,
+      "automergeType": "pr",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"]
+    },
+
+    // --- Docker Base Images ---
+    {
+      "description": "Docker Base Images: Gruppiert",
+      "matchManagers": ["dockerfile"],
+      "groupName": "Docker Base Images",
+      "automerge": false,
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "description": "Docker Base Images: Automerge minor/patch",
+      "matchManagers": ["dockerfile"],
+      "groupName": "Docker Base Images (minor/patch)",
+      "automerge": true,
+      "automergeType": "pr",
+      "matchUpdateTypes": ["minor", "patch", "digest"]
+    },
+
+    // --- nginx:alpine spezifisch pinnen ---
+    {
+      "description": "Nginx: Pin auf stable-alpine Version",
+      "matchPackageNames": ["nginx"],
+      "allowedVersions": "/^\\d+\\.\\d+-alpine/",
+      "versioning": "docker"
+    },
+
+    // --- npm-Pakete im Dockerfile (clean-css-cli, terser via Custom Regex) ---
+    {
+      "description": "Dockerfile npm-Pakete: Kein Automerge bei Major",
+      "matchManagers": ["custom.regex"],
+      "matchDatasources": ["npm"],
+      "automerge": false,
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "description": "Dockerfile npm-Pakete: Automerge minor/patch",
+      "matchManagers": ["custom.regex"],
+      "matchDatasources": ["npm"],
+      "automerge": true,
+      "automergeType": "pr",
+      "matchUpdateTypes": ["minor", "patch"]
+    }
+  ],
+
+  // npm-Pakete im Dockerfile erkennen (via renovate: Kommentar + ARG)
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "#\\s*renovate:\\s*datasource=(?<datasource>[^\\s]+)\\s+depName=(?<depName>[^\\s]+)\\nARG\\s+\\w+=(?<currentValue>.+)"
+      ]
+    }
+  ]
+}
