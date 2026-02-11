@@ -79,7 +79,6 @@ jobs:
             -H "Authorization: token ${{ secrets.DEPLOY_PAT }}" \
             https://api.github.com/repos/englisch-static-websites/static-sites-deployment/dispatches \
             -d '{"event_type": "deploy-rech-website"}'
-        continue-on-error: true
 
       - name: Trigger Dev Deployment
         if: github.ref == 'refs/heads/develop'
@@ -89,4 +88,3 @@ jobs:
             -H "Authorization: token ${{ secrets.DEPLOY_PAT }}" \
             https://api.github.com/repos/englisch-static-websites/static-sites-deployment/dispatches \
             -d '{"event_type": "deploy-rech-website-dev"}'
-        continue-on-error: true
