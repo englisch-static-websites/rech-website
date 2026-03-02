@@ -1,7 +1,7 @@
 # =============================================================================
 # Stage 1: Bilder optimieren
 # =============================================================================
-FROM alpine:3.19 AS img-optimize
+FROM alpine:3.23@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659 AS img-optimize
 
 RUN apk add --no-cache imagemagick jpegoptim optipng libwebp-tools
 
