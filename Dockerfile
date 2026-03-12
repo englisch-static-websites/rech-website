@@ -24,7 +24,7 @@ RUN find /img -type f \( -iname "*.jpg" -o -iname "*.jpeg" \) \
 # =============================================================================
 # Stage 2: CSS/JS minifizieren
 # =============================================================================
-FROM node:22-alpine AS minify
+FROM node:22-alpine@sha256:8094c002d08262dba12645a3b4a15cd6cd627d30bc782f53229a2ec13ee22a00 AS minify
 
 # renovate: datasource=npm depName=clean-css-cli
 ARG CLEAN_CSS_VERSION=5.6.3
@@ -42,7 +42,7 @@ RUN find /assets/js -name '*.js' -exec sh -c 'terser "$1" -o "$1" --compress --m
 # =============================================================================
 # Stage 3: Nginx mit optimierten Dateien
 # =============================================================================
-FROM nginx:alpine
+FROM nginx:alpine@sha256:f46cb72c7df02710e693e863a983ac42f6a9579058a59a35f1ae36c9958e4ce0
 
 # Build-Metadaten
 ARG GIT_COMMIT=unknown
