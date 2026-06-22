@@ -29,7 +29,7 @@ FROM node:22-alpine AS minify
 # renovate: datasource=npm depName=clean-css-cli
 ARG CLEAN_CSS_VERSION=5.6.3
 # renovate: datasource=npm depName=terser
-ARG TERSER_VERSION=5.46.0
+ARG TERSER_VERSION=5.46.2
 
 RUN npm install -g clean-css-cli@${CLEAN_CSS_VERSION} terser@${TERSER_VERSION} --no-fund --no-audit
 
